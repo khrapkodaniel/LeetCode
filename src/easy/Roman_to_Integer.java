@@ -19,12 +19,14 @@ public class Roman_to_Integer {
 		map.put('D', 500);
 		map.put('M', 1000);
 		
-		int ans = 0;
+		int length = s.length(), ans = 0;
 		
-		for (int i = 0; i < s.length(); i++) {
-			if (i < s.length() - 1 && map.get(s.charAt(i)) < map.get(s.charAt(i + 1)))
-				ans -= map.get(s.charAt(i));
-			else ans += map.get(s.charAt(i));
+		for (int i = 0; i < length; i++) {
+			int current = map.get(s.charAt(i));
+			
+			if (i < length - 1 && current < map.get(s.charAt(i + 1)))
+				ans -= current;
+			else ans += current;
 		}
 		
 		return ans;
